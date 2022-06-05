@@ -1,9 +1,11 @@
 ---
 layout: post
 title:  "How do I run the benchmarks in the '/benchmarks' directory?"
-categories: mysql2 directories
+categories: mysql2
 author: richie
 ---
+
+# The setup
 
 First I had to clone the Github repo and install the gems.
 
@@ -55,10 +57,16 @@ Traceback (most recent call last):
 The important part of this error seems to be:
 
 ```
-/Users/richiethomas/.rbenv/versions/2.6.0/lib/ruby/gems/2.6.0/gems/activesupport-6.1.6/lib/active_support/dependencies.rb:332:in `require': Could not load the 'mysql' Active Record adapter. Ensure that the adapter is spelled correctly in config/database.yml and that you've added the necessary adapter gem to your Gemfile. (LoadError)
+cannot load such file -- active_record/connection_adapters/mysql_adapter (LoadError)
 ```
 
-This seems to indicate that the `mysql` gem was not installed.  Taking another look at the Gemfile, I see:
+# The short story
+
+After much investigation, the TL;DR from the above error seems to be that [the benchmark files are outdated and non-runnable](https://stackoverflow.com/questions/72496891/mysql2-gem-how-to-run-benchmark-files).  However I'm still waiting on a response to [the Github issue I posted](https://github.com/brianmario/mysql2/issues/1269), so TBD on that.
+
+# The long story
+
+The above error seems to indicate that the `mysql` gem was not installed.  Taking another look at the Gemfile, I see:
 
 ```
 gem 'mysql' if Gem::Version.new(RUBY_VERSION) < Gem::Version.new('2.4')
@@ -130,4 +138,44 @@ Gem files will remain installed in /Users/richiethomas/.rbenv/versions/2.6.0/lib
 Results logged to /Users/richiethomas/.rbenv/versions/2.6.0/lib/ruby/gems/2.6.0/extensions/x86_64-darwin-19/2.6.0/mysql-2.9.1/gem_make.out
 ```
 
-There's also the secondary problem that the file mentioned in one of the above errors, `config/database.yml`, does not exist in the gem's repo.  I'm guessing that these benchmarks have to be run within the context of a web app which contains this file, such as a Rails application.
+The important part of the above error message seems to be:
+
+```
+You have to install development tools first.
+```
+
+I recognize this from previous error messages.  In the past, the solution to this has been to run:
+
+```
+xcode-select --install
+```
+
+However, I already have XCode installed, and when I run the above command, I see:
+
+```
+xcode-select: error: command line tools are already installed, use "Software Update" to install updates
+```
+
+Googling how to run a `Software Update`, I see [this StackOverflow link](https://stackoverflow.com/a/71149175/2143275), advising me to run the following:
+
+```
+softwareupdate --list --verbose
+```
+
+Running that gives me the following output:
+
+```
+
+Software Update Tool
+
+Finding available software
+Software Update found the following new or updated software:
+* Label: macOS Catalina 10.15.7 Update-
+	Title: macOS Catalina 10.15.7 Update, Version:  , Size: 5149093K, Recommended: YES, Action: restart,
+```
+
+This seems to indicate that I need to upgrade my OSx.  I do so, and this takes 2-3 hours.  I then try to install the `mysql` gem.  I get the same error (`You have to install development tools first.`).
+
+I then remember that I may need to simply update XCode to the latest version.  I do this as well, which takes probably 5-6 hours, and similarly results in no improvement in the situation.
+
+In frustration, I post [this StackOverflow question](https://stackoverflow.com/questions/72496891/mysql2-gem-how-to-run-benchmark-files) and [this Github issue](https://github.com/brianmario/mysql2/issues/1269).  While the repo's maintainer hasn't replied to the GH issue yet, someone did reply to my SO question with an explanation that seems helpful.  It appears that I needed to run `benchmark/db_setup.rb` to create some necessary DB state.  However this by itself still wasn't enough, and the SO answer indicates that no solution may be possible, as it appears likely that the code in `benchmark` is out of date.
