@@ -1,7 +1,9 @@
 - name: Home
   link: /
-- name: About
+- name: About Me
   link: /about/
+- name: Start Here
+  link: /start-here/
 - name: Blog
   link: /blog/
 - name: Staff
