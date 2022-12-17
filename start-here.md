@@ -1,3 +1,9 @@
+---
+layout: default
+title: Start Here
+permalink: /start-here/
+---
+
 # What is "The Impostor's Guide To Programming"?
 
 It's “David and Goliath” for Github.
