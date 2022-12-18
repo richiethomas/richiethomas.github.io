@@ -8,30 +8,45 @@ permalink: /start-here/
 
 It's “David and Goliath” for Github.
 
-The goal is to help a newbie programmer (the David in this metaphor) beat Goliath (an unfamiliar, inscrutable codebase) one line of code at a time.  In our case, “beat” means “grok”.
+The goal is to help a newbie programmer grok an unfamiliar, inscrutable codebase, one line of code at a time.
 
-I want to take a beginner programmer who knows nothing about codebase X or its tech stack, and teach her how to grok that codebase.  By the end, she should know:
+# What is in-scope for this project?
+
+By the end of reading this material, she should know:
 
  - What codebase X’s purpose is.
  - How it differs from other tools with the same purpose.
  - What codebase X’s design philosophy is.
  - How its implementation helps it deliver on that philosophy.
 
-Within Y # of minutes, she should be able to answer the first 3 questions.
+Within Y minutes (# TBD), she should be able to answer the first 3 questions.
 
-Within Z # of hours / days, she should be able to answer the 4th question.
+Within Z hours / days (# TBD), she should be able to answer the 4th question.
 
 Just as important, she should have a framework for learning how to repeat this process on her own, with any library / framework / language she chooses.
 
-The goal is explicitly NOT to be 100% accurate correct.  "Made To Stick" talks about the inherent trade-off between accuracy and usefulness.  We can tell a 6th grader that electrons orbit around an atom's nucleus, which is a useful metaphor but not 100% accurate.  Or we can talk to that same 6th grader about "electron density" and "probability fields", which is much more accurate but completely useless when communicating with a child that young.
+# What is *out-of-scope* for this project?
 
-My goal is to be *directionally accurate*.  I want to present enough information to be useful, but not so much that the reader feels overwhelmed.
+The goal is explicitly NOT to be 100% accurate correct.  Why?  The book "Made To Stick" talks about the inherent trade-off between accuracy and usefulness, and uses the example of teaching a 6th-grader about an atom and its electons.  We can tell a 6th grader that electrons orbit around an atom's nucleus like a planet orbits around the sun, which is a useful metaphor but not 100% accurate.  Or we can talk to that same 6th grader about "electron density" and "probability clouds", which is much more accurate, but is likely to go completely over the child's head.
 
-This is an experiment in new ways to help beginner programmers level up.
+Quoting the book, "An accurate but useless idea is still useless."  My goal is to be *directionally accurate*.  I want to present just enough information to be useful, then a little more, then a little more.
 
 # What methodology will you use?
 
 The plan is to document various popular open-source projects, one line of code at a time, until I’ve analyzed the whole codebase.  I might also attempt to analyze the repo's commit history, for added context on why certain design decisions were made.
+
+This is an experiment in new ways to help beginner programmers level up.  I'm trying to apply the principles of "sticky ideas" that I learned while reading "Made To Stick", by Chip and Dan Heath.  Principles like:
+
+  - Keep the idea simple.  Not simple as in "use small words", but simple as in "stick to the core idea, and keep it succinct."
+  - Present the core information in unexpected ways.  If you're not surprised, you're not learning.  Disrupting peoples' guessing machines means the information will be remembered longer.
+  - Make the information concrete.  Don't just give people abstract definitions.  Use tangible examples whenever possible.
+  - Build credibility.  In this case, I mean the credibility of the idea I'm "selling", which is that a newbie can become a world-class engineer.  If the newbie can see herself beginning to understand a real-world, widely-used codebase, she'll know this goal really is possible.
+  - Appeal to emotion and identity.  "We are engineers with grit.  If we don't understand something, we don't give up.  We break it down into smaller, simpler pieces until we grok it.  Then we run experiments to confirm our understanding.  We take it easy on ourselves, and we get better one day at a time.  If we need help, we ask for it."
+  - Use stories.  Stories can be a form of simulated practice.  Talk about real-world examples where we made mistakes, discovered our mistakes, and corrected our mistakes.  Stories can also be a source of inspiration.  Talk about world-class, famous engineers who were once just like us, but got better by stretching their knowledge bit by bit until they became who they are today.
+  - Use Robert Cialdini's teaching trick of starting the class with a relevant mystery, then using the rest of class to solve it.  "Cialdini believes that a major benefit of teaching using mysteries is that 'the process of resolving mysteries is remarkably similar to the process of science.' So, by using mysteries, teachers don’t just heighten students’ interest in the day’s material; they train them to think like scientists."
+  - The answer to the question "What does RBENV do?" is the sum of the answers to the questions "What does file X / Y / Z / etc. in RBENV do?"  So by examining what each file does in turn, we can gradually develop an understanding of what the program as a whole does.
+
+Heath, Chip; Heath, Dan. Made to Stick (p. 82). Random House Publishing Group. Kindle Edition.
 
 # What specific skills are you trying to impart?
 
