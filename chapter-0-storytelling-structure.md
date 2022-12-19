@@ -18,7 +18,7 @@ Because different codebases on your machine will run on different versions of th
 
 If you insist on not using a version manager, then every time you want to switch from working on one app to working on the other, you have to upgrade / downgrade your system Ruby version.  That is, shall we say, impractical.  Using a version manager makes this switching process as easy as a few keystrokes.
 
-This article sums it up nicely:
+[This article](https://web.archive.org/web/20220809210326/https://launchschool.com/books/core_ruby_tools/read/ruby_version_managers) sums it up nicely:
 
 ![image tooltip here](/assets/images/why_use_a_version_manager.png)
 
